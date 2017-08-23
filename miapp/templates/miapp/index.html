@@ -1,0 +1,23 @@
+{% if lista_ultimos_articulos %}
+	<ul>
+	{% for articulo in lista_ultimos_articulos %}
+	     <li><a href="{% url 'miapp:detalleArticulo' articulo.id %}">{{ articulo.encabezado }}</a> 
+		{% if articulo.votos == 0 %}
+		[{{ articulo.votos }}]
+		{% endif%}
+
+		{% if articulo.votos > 0 %}
+		[<span style="color:green">{{ articulo.votos }}</span>]
+		{% endif %}
+
+		{% if articulo.votos < 0 %}
+		[<span style="color:red">{{ articulo.votos }}</span>]
+		{% endif %}
+	     </li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No hay articulos disponibles! </p>
+{% endif %}
+
+<p><a href="{% url 'miapp:new_articulo' %}"> Registra un Articulo </a></p>

@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<h3>{{articulo.encabezado }}</h3>
+<p>{{ articulo.contenido }}</p>
+<p>Publicado el: {{ articulo.fecha_pub|date:"j" }} de {{ articulo.fecha_pub|date:"F" }} del {{ articulo.fecha_pub|date:"Y" }} 
+a las {{ articulo.fecha_pub|date:"f A" }}</p>
+
+{% if sin_votar %}
+<a href="{% url 'miapp:votarPositivo' articulo.id %}">
+   <img src="{% static 'img/upvote.png' %}" height="30" width="30" alt="Votar Positivo!"/>
+</a>
+
+<a href="{% url 'miapp:votarNegativo' articulo.id %}">
+   <img src="{% static 'img/downvote.png' %}" height="30" width="30" alt="votar Negativo!"/>
+</a>
+{% else %}
+<b>Gracias por votar!</b></br></br>
+<a href="{% url 'miapp:index' %}">Regresar al inicio</a>
+
+{% endif %}
+
+
+
