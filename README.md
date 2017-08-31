@@ -1,11 +1,7 @@
 # myApp
 Mi primera aplicación en Django
 
-
-
 Proyecto de Django
-
-
 
 Fase Acelerada del Laboratorio Vivencial LABVIV
 -
